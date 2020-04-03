@@ -39,13 +39,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "jamaica" */ "@/views/Jamaica")
   },
   {
-    path: "/details/:id",
+    path: "/details/:slug",
     name: "DestinationDetails",
-    component: () => import(/* webpackChunkName: "DestinationDetails"*/ "@/components/DestinationDetails")
+    component: () => import(/* webpackChunkName: "DestinationDetails"*/ "@/components/DestinationDetails"),
+    props: true
   }
 ]
 
 const router = new VueRouter({
+  mode: "history",
   linkExactActiveClass: "rename-active-class",
   routes
 })

@@ -1,12 +1,5 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/brazil">Brazil</router-link>
-    <router-link to="/panama">Panama</router-link>
-    <router-link to="/hawaii">Hawaii</router-link>
-    <router-link to="/jamaica">Jamaica</router-link>
-
-
     <ul class="nav-links">
       <li class="links">
         <router-link to="/">Home</router-link>
@@ -15,7 +8,7 @@
         <router-link
           :to="{
             name: 'DestinationDetails',
-            params: { id: destination.id }
+            params: { slug: destination.slug }
           }"
         >{{ destination.name }}</router-link>
       </li>
