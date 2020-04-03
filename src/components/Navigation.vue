@@ -13,13 +13,19 @@
         >{{ destination.name }}</router-link>
       </li>
     </ul>
+
+    <Back />
   </div>
 </template>
 
 <script>
 import store from "@/store.js";
+import Back from "@/components/Back";
 
 export default {
+  components: {
+    Back
+  },
   data() {
     return {
       destinations: store.destinations
@@ -31,6 +37,7 @@ export default {
 <style scoped>
 #nav {
   display: flex;
+  justify-content: space-between;
 }
 
 #nav a {
