@@ -1,6 +1,7 @@
 <template>
   <section class="destinations">
     <h1>{{ destination.name }}</h1>
+
     <div class="destination-details">
       <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name" />
       <p>{{ destination.description }}</p>
