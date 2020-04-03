@@ -37,10 +37,16 @@ const routes = [
     path: "/jamaica",
     name: "jamaica",
     component: () => import(/* webpackChunkName: "jamaica" */ "@/views/Jamaica")
+  },
+  {
+    path: "/details",
+    name: "DestinationDetails",
+    component: () => import(/* webpackChunkName: "DestinationDetails"*/ "@/components/DestinationDetails")
   }
 ]
 
 const router = new VueRouter({
+  linkExactActiveClass: "rename-active-class",
   routes
 })
 

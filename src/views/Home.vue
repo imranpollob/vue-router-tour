@@ -10,9 +10,13 @@
 
         <figure>
           <router-link :to="destination.slug">
-            <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name"/>
+            <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name" />
           </router-link>
         </figure>
+
+        <router-link :to="{ name: 'DestinationDetails', params: { id: destination.id } }">
+          <h2>{{ destination.name }}</h2>
+        </router-link>
       </div>
     </div>
   </div>
