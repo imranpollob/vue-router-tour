@@ -30,7 +30,10 @@ export default {
     onSubmit() {
       if (this.username.length) {
         store.username = this.username;
-        this.$router.push("/profile");
+
+        const redirectPath = this.$route.query.redirect || "/";
+
+        this.$router.push(redirectPath);
       }
     }
   }
