@@ -29,6 +29,18 @@ const routes = [
           import(
             /*webpackChunkName: "ExperienceDetails"*/ "@/views/ExperienceDetails"
           ),
+        beforeEnter: (to, from, next) => {
+          const exists = store.destinations
+            .find((destination) => destination.slug === to.params.slug)
+            .experiences.find(
+              (experience) => experience.slug === to.params.experienceSlug
+            );
+          if (exists) {
+            next();
+          } else {
+            next({ name: "404" });
+          }
+        },
       },
     ],
     beforeEnter: (to, from, next) => {
