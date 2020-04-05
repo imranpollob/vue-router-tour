@@ -14,7 +14,11 @@
       </li>
     </ul>
 
-    <Back />
+    <div class="right-nav-links">
+      <router-link :to="{name:'profile'}" class="links">Profile</router-link>
+      <router-link :to="{name:'invoices'}" class="links">Invoices</router-link>
+      <Back />
+    </div>
   </div>
 </template>
 
@@ -50,8 +54,10 @@ export default {
   color: #42b983;
 }
 
-.nav-links {
+.nav-links,
+.right-nav-links {
   display: flex;
+  align-items: center;
 }
 .links {
   padding-right: 20px;

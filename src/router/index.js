@@ -43,6 +43,28 @@ const routes = [
     },
   },
   {
+    path: "/login",
+    name: "login",
+    component: () => import(/*webpackChunkName: "login"*/ "@/views/login"),
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import(/*webpackChunkName: "profile"*/ "@/views/profile"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/invoices",
+    name: "invoices",
+    component: () =>
+      import(/*webpackChunkName: "invoices"*/ "@/views/invoices"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/404",
     alias: "*",
     name: "404",
@@ -55,6 +77,18 @@ const router = new VueRouter({
   mode: "history",
   linkExactActiveClass: "rename-active-class",
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!store.username) {
+      next({ name: "login" });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

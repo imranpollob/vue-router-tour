@@ -33,4 +33,7 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+button {
+  padding: 5px 10px;
+}
 </style>
